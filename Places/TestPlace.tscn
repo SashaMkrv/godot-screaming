@@ -1,0 +1,362 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://Character/someguybutSMALL.png" type="Texture" id=1]
+[ext_resource path="res://Character/PlayerController.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=10]
+resource_name = "Big Cry"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 1 ), Vector2( 0, -1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Big Scream"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.101, 0.2, 0.3, 0.4, 0.401 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 2, 0 ), Vector2( -2, 0 ), Vector2( 0, 2 ), Vector2( 2, 2 ), Vector2( 0, 0 ), Vector2( 0, 2 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Cry"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Scream"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.101, 0.2, 0.3, 0.4, 0.401 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 0 ), Vector2( -1, 0 ), Vector2( 0, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ), Vector2( 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "TurnLeft"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 2 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "TurnRight"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 2 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Walk"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -15.0, 0.0, 15.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8.02149, 3.95774 )
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Big Cry"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Big Scream"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Cry"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Scream"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "TurnLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "TurnRight"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
+[sub_resource type="AnimationNodeStateMachine" id=6]
+"states/Big Cry/node" = SubResource( 13 )
+"states/Big Cry/position" = Vector2( 454, 149 )
+"states/Big Scream/node" = SubResource( 14 )
+"states/Big Scream/position" = Vector2( 805, 192 )
+states/Cry/node = SubResource( 15 )
+states/Cry/position = Vector2( 614, 75 )
+states/Idle/node = SubResource( 16 )
+states/Idle/position = Vector2( 994, -16 )
+states/Scream/node = SubResource( 17 )
+states/Scream/position = Vector2( 614, 232 )
+states/TurnLeft/node = SubResource( 18 )
+states/TurnLeft/position = Vector2( 1359, 149 )
+states/TurnRight/node = SubResource( 19 )
+states/TurnRight/position = Vector2( 1127, 149 )
+states/WalkLeft/node = SubResource( 12 )
+states/WalkLeft/position = Vector2( 1246, 351 )
+states/WalkRight/node = SubResource( 20 )
+states/WalkRight/position = Vector2( 1339, -30 )
+transitions = [ "Big Cry", "Scream", SubResource( 21 ), "Scream", "Big Cry", SubResource( 22 ), "Big Cry", "Cry", SubResource( 23 ), "Cry", "Big Cry", SubResource( 24 ), "Cry", "Big Scream", SubResource( 25 ), "Big Scream", "Cry", SubResource( 26 ), "Big Scream", "Scream", SubResource( 27 ), "Scream", "Big Scream", SubResource( 28 ), "Big Scream", "Big Cry", SubResource( 29 ), "Big Cry", "Big Scream", SubResource( 30 ), "Cry", "Scream", SubResource( 31 ), "Scream", "Cry", SubResource( 32 ), "Cry", "Idle", SubResource( 33 ), "Big Scream", "Idle", SubResource( 34 ), "Big Cry", "Idle", SubResource( 35 ), "Scream", "Idle", SubResource( 36 ), "WalkRight", "TurnLeft", SubResource( 37 ), "TurnLeft", "WalkLeft", SubResource( 38 ), "WalkLeft", "TurnRight", SubResource( 39 ), "TurnRight", "WalkRight", SubResource( 40 ), "Idle", "TurnRight", SubResource( 41 ), "Idle", "TurnLeft", SubResource( 42 ), "WalkRight", "Idle", SubResource( 43 ), "WalkLeft", "Idle", SubResource( 44 ) ]
+start_node = "Idle"
+graph_offset = Vector2( 275, -81 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+
+[node name="TestPlace" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.309804, 0.309804, 0.309804, 1 )
+polygon = PoolVector2Array( -23.9818, 90.5639, 204.276, 90.5639, 202.941, 170.321, -18.6424, 166.65 )
+
+[node name="Character" type="KinematicBody2D" parent="."]
+modulate = Color( 0.968627, 1, 0.0392157, 1 )
+position = Vector2( 138.089, 78.3991 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Character"]
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
+autoplay = "Idle"
+"anims/Big Cry" = SubResource( 10 )
+"anims/Big Scream" = SubResource( 11 )
+anims/Cry = SubResource( 8 )
+anims/Idle = SubResource( 5 )
+anims/Scream = SubResource( 9 )
+anims/TurnLeft = SubResource( 2 )
+anims/TurnRight = SubResource( 4 )
+anims/Walk = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
+position = Vector2( -0.44545, 12.4726 )
+shape = SubResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="Character"]
+tree_root = SubResource( 6 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 7 )
