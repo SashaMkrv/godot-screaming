@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Character/PlayerCharacter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Character/WalkerController.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 131.256, 10 )
 
 [node name="TestPlace" type="Node2D"]
 
@@ -10,7 +13,16 @@
 color = Color( 0.309804, 0.309804, 0.309804, 1 )
 polygon = PoolVector2Array( -23.9818, 90.5639, 204.276, 90.5639, 202.941, 170.321, -18.6424, 166.65 )
 
+[node name="horizion" type="StaticBody2D" parent="."]
+position = Vector2( 86.9346, 75.5953 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizion"]
+shape = SubResource( 1 )
+
 [node name="YSort" type="YSort" parent="."]
+__meta__ = {
+"_editor_description_": "so, because the controllers don't move along with the kinematic bodies, the ysort doesn't work one bit. also, that's probably bad practise? Maybe not, I don't know."
+}
 
 [node name="WalkerController" type="Node2D" parent="YSort"]
 position = Vector2( 31.8245, 83.9021 )
