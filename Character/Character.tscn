@@ -6,7 +6,7 @@
 [ext_resource path="res://Character/PlayerController.gd" type="Script" id=4]
 [ext_resource path="res://Character/someguymouth.png" type="Texture" id=5]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "IdleLeft"
 length = 0.01
 tracks/0/type = "value"
@@ -70,7 +70,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=2]
 resource_name = "IdleRight"
 length = 0.01
 tracks/0/type = "value"
@@ -134,7 +134,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=3]
 resource_name = "NoScream"
 length = 0.01
 tracks/0/type = "value"
@@ -162,7 +162,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=4]
 resource_name = "Scream"
 length = 0.2
 loop = true
@@ -191,8 +191,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "TurnLeft"
+[sub_resource type="Animation" id=5]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
@@ -243,8 +242,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "TurnRight"
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
@@ -295,8 +293,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Walk"
+[sub_resource type="Animation" id=7]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -324,15 +321,15 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8.02149, 3.95774 )
 
-[sub_resource type="AnimationNodeAdd2" id=34]
+[sub_resource type="AnimationNodeAdd2" id=9]
 filters = [ "Sprite:offset" ]
 
-[sub_resource type="AnimationNodeBlendTree" id=35]
+[sub_resource type="AnimationNodeBlendTree" id=10]
 graph_offset = Vector2( -227, -53 )
-nodes/Add2/node = SubResource( 34 )
+nodes/Add2/node = SubResource( 9 )
 nodes/Add2/position = Vector2( 560, 100 )
 nodes/Emotion/node = ExtResource( 1 )
 nodes/Emotion/position = Vector2( 80, 20 )
@@ -341,12 +338,11 @@ nodes/Walk/position = Vector2( 80, 200 )
 nodes/output/position = Vector2( 820, 140 )
 node_connections = [ "output", 0, "Add2", "Add2", 0, "Emotion", "Add2", 1, "Walk" ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=36]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=37]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
 [node name="Character" type="KinematicBody2D"]
-modulate = Color( 0.968627, 1, 0.0392157, 1 )
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -358,22 +354,22 @@ texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "IdleLeft"
-anims/IdleLeft = SubResource( 5 )
-anims/IdleRight = SubResource( 12 )
-anims/NoScream = SubResource( 38 )
-anims/Scream = SubResource( 33 )
-anims/TurnLeft = SubResource( 2 )
-anims/TurnRight = SubResource( 4 )
-anims/Walk = SubResource( 1 )
+anims/IdleLeft = SubResource( 1 )
+anims/IdleRight = SubResource( 2 )
+anims/NoScream = SubResource( 3 )
+anims/Scream = SubResource( 4 )
+anims/TurnLeft = SubResource( 5 )
+anims/TurnRight = SubResource( 6 )
+anims/Walk = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.44545, 12.4726 )
-shape = SubResource( 3 )
+shape = SubResource( 8 )
 
 [node name="ComboTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 35 )
+tree_root = SubResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Add2/add_amount = 0.5
-parameters/Emotion/playback = SubResource( 36 )
-parameters/Walk/playback = SubResource( 37 )
+parameters/Emotion/playback = SubResource( 11 )
+parameters/Walk/playback = SubResource( 12 )
