@@ -1,0 +1,54 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=15 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "TurnLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "TurnRight"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+
+[resource]
+states/IdleLeft/node = SubResource( 13 )
+states/IdleLeft/position = Vector2( 499, 75 )
+states/IdleRight/node = SubResource( 14 )
+states/IdleRight/position = Vector2( 448, 301 )
+states/TurnLeft/node = SubResource( 15 )
+states/TurnLeft/position = Vector2( 788, 186 )
+states/TurnRight/node = SubResource( 16 )
+states/TurnRight/position = Vector2( 1124, 186 )
+states/WalkLeft/node = SubResource( 17 )
+states/WalkLeft/position = Vector2( 950, 66 )
+states/WalkRight/node = SubResource( 18 )
+states/WalkRight/position = Vector2( 945, 316 )
+transitions = [ "IdleLeft", "WalkLeft", SubResource( 19 ), "IdleLeft", "TurnRight", SubResource( 20 ), "IdleRight", "TurnLeft", SubResource( 21 ), "IdleRight", "WalkRight", SubResource( 22 ), "WalkLeft", "TurnRight", SubResource( 23 ), "TurnRight", "WalkRight", SubResource( 24 ), "WalkRight", "TurnLeft", SubResource( 25 ), "TurnLeft", "WalkLeft", SubResource( 26 ) ]
+start_node = "IdleLeft"
+graph_offset = Vector2( 14, -49 )

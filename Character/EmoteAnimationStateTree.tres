@@ -1,0 +1,21 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=5 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "NoScream"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "Scream"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[resource]
+states/NoScream/node = SubResource( 31 )
+states/NoScream/position = Vector2( 681, 250 )
+states/Scream/node = SubResource( 32 )
+states/Scream/position = Vector2( 689, 100 )
+transitions = [ "NoScream", "Scream", SubResource( 33 ), "Scream", "NoScream", SubResource( 34 ) ]
+start_node = "NoScream"
+graph_offset = Vector2( 6, 42 )
