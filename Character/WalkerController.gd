@@ -1,14 +1,6 @@
-extends Node2D
+extends "res://Character/CharacterController.gd"
 
-onready var character := $Character
-
-export (int) var speed
 export (bool) var goingRight
-
-
-func _ready():
-	character.speed = speed
-
 
 
 func getDirection() -> Vector2:
@@ -19,4 +11,4 @@ func getDirection() -> Vector2:
 
 func _physics_process(delta):
 	var direction = getDirection()
-	character.handleNewState(direction)
+	.handleNewState(direction)

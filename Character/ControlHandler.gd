@@ -1,11 +1,4 @@
-extends Node2D
-
-onready var character := $Character
-export (int) var speed = 70
-
-
-func _ready():
-	character.speed = speed
+extends "res://Character/CharacterController.gd"
 
 
 func checkForYelling() -> bool:
@@ -19,9 +12,12 @@ func getDirection() -> Vector2:
 	# we're going to ignore this axis for aesthetic purposes for now.
 	return Vector2(horizontal, vertical)
 
+func screamCollision(isYelling = false):
+	$StaticBody2D/CollisionShape2D.set_deferred("disabled", not isYelling)
+#	$StaticBody2D.visible = isYelling
 
-
-func _physics_process(delta):
-	var yelling = checkForYelling()
-	var direction = getDirection()
-	character.handleNewState(direction, yelling)
+#func _physics_process(delta):
+#	var yelling = checkForYelling()
+#	var direction = getDirection()
+#	screamCollision(yelling)
+#	.handleNewState(direction, yelling)
