@@ -321,8 +321,8 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 8.02149, 3.95774 )
+[sub_resource type="CircleShape2D" id=13]
+radius = 4.94489
 
 [sub_resource type="AnimationNodeAdd2" id=9]
 filters = [ "Sprite:offset" ]
@@ -364,7 +364,7 @@ anims/Walk = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.44545, 12.4726 )
-shape = SubResource( 8 )
+shape = SubResource( 13 )
 
 [node name="ComboTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 10 )
